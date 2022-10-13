@@ -3,11 +3,8 @@
 	prompt: .asciiz "Enter n, followed by n lines of text:\n"	#Prompt string to user
 	space: .asciiz "\n"
 	inBuffer: .space 20000
-	.align 2
+	.align 3
 	array: .space 20000
-	
-	
-	
 	
 .text 
 main:
@@ -39,8 +36,8 @@ readerLoop:
 	sw $t5, array($t1)
 	
 	addi $t0, $t0, 1	#increment counter 
-	addi $t1, $t1, 4	#increment offset values by 4
-	addi $t7, $t7, 8	#increment inBuffer offset by 8 for more space
+	addi $t1, $t1, 120	#increment offset values by 4
+	addi $t7, $t7, 120	#increment inBuffer offset by 8 for more space
 	j readerLoop
 	
 	
@@ -50,7 +47,7 @@ next:
 	li $v0, 4	#load sevice 4 (print string)
 	syscall
 	
-	addi $t2, $zero, 4
+	addi $t2, $zero, 120
 	
 	
 outputLoop:
