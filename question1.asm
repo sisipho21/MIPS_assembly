@@ -36,7 +36,7 @@ readerLoop:
 	sw $t5, array($t1)
 	
 	addi $t0, $t0, 1	#increment counter 
-	addi $t1, $t1, 120	#increment offset values by 4
+	addi $t1, $t1, 120	#increment offset values by 120
 	addi $t7, $t7, 120	#increment inBuffer offset by 8 for more space
 	j readerLoop
 	

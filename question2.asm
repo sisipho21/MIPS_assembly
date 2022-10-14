@@ -19,18 +19,18 @@ main:
 	syscall
 	la $t0, input
 
-	addi $t1, $zero, 0	#sum variable - initialise to 0
+	addi $t1, $zero, 0	#running sum variable - initialise to 0
 	addi $t2, $zero, 0	#counter variable for storing into array - initialise to 0
 	
 createSumLoop:
 	lb $t3, ($t0)		#load current byte from input string
-	addu $t0, $t0, 1	#increment input string??
+	addu $t0, $t0, 1	#increment input string
 
 	beq $t3, 10, Last	#condition for end of string
 	beq $t3, '+', Store	#condition for end of current number
 	
 	mul $t1, $t1, 10	# $t1 *= 10
-	sub $t3, $t3, '0' 	# converting byte to integer??
+	sub $t3, $t3, '0' 	# converting byte to integer
 	add $t1, $t1, $t3	# adding to the current sum
 
 	j createSumLoop
